@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juan Manuel Pérez Rincón | Software Engineer</title>
+  <meta name="description" content="Portafolio de Juan Manuel Pérez Rincón, Ingeniero de Software en Bogotá, Colombia.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'><rect width='8' height='8' fill='%2314112b'/><rect x='1' y='1' width='6' height='6' fill='%23ffd23f'/><rect x='2' y='3' width='1' height='1' fill='%2314112b'/><rect x='5' y='3' width='1' height='1' fill='%2314112b'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="start-screen" id="start-screen" hidden>
+    <p class="start-screen__name">Juan Manuel<br>Pérez Rincón</p>
+    <p class="start-screen__press blink">▶ <span data-i18n="start"></span></p>
+    <p class="start-screen__hint" data-i18n="startHint"></p>
+  </div>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a href="#top" class="logo">JM<span class="blink">_</span></a>
+      <nav class="nav" id="nav">
+        <a href="#profile" data-i18n="navProfile"></a>
+        <a href="#quests" data-i18n="navQuests"></a>
+        <a href="#skills" data-i18n="navSkills"></a>
+        <a href="#training" data-i18n="navAchievements"></a>
+        <a href="#items" data-i18n="navItems"></a>
+        <a href="#contact" data-i18n="navContact"></a>
+      </nav>
+      <div class="topbar__actions">
+        <button class="lang-btn" id="lang-btn" aria-label="Change language"></button>
+        <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="wrap hero__grid">
+        <div class="avatar box">
+          <span class="avatar__tag" data-i18n="player"></span>
+          <canvas id="avatar" width="160" height="200" aria-hidden="true"></canvas>
+          <div class="avatar__floor"></div>
+        </div>
+
+        <div class="card box">
+          <h1 class="card__name" id="name"></h1>
+          <p class="card__class"><span data-i18n="classLabel"></span>: <strong id="role"></strong></p>
+
+          <dl class="card__stats">
+            <div class="stat" data-i18n-title="lvlTitle">
+              <dt data-i18n="lvl"></dt>
+              <dd class="stat__num" id="lvl"></dd>
+            </div>
+            <div class="stat">
+              <dt data-i18n="hp"></dt>
+              <dd class="meter meter--red"><i style="width:100%"></i></dd>
+            </div>
+            <div class="stat" data-i18n-title="xpTitle">
+              <dt data-i18n="xp"></dt>
+              <dd class="meter meter--cyan"><i id="xp"></i></dd>
+            </div>
+          </dl>
+
+          <p class="card__tagline" id="tagline"></p>
+          <p class="card__location">⌂ <span id="location"></span></p>
+
+          <div class="card__buttons">
+            <a href="#contact" class="btn" data-i18n="contactBtn"></a>
+            <a href="#" class="btn btn--alt" id="cv-btn" download data-i18n="cvBtn"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="profile">
+      <div class="wrap">
+        <h2 class="section__title" data-i18n="profileTitle"></h2>
+        <div class="profile">
+          <div class="dialog box" id="dialog" role="button" tabindex="0">
+            <span class="dialog__speaker">JUAN</span>
+            <div class="dialog__text" id="about"></div>
+            <span class="dialog__next blink">▼</span>
+          </div>
+          <dl class="facts" id="facts"></dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="quests">
+      <div class="wrap">
+        <h2 class="section__title" data-i18n="questsTitle"></h2>
+        <ol class="quests" id="quest-list"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="wrap">
+        <h2 class="section__title" data-i18n="skillsTitle"></h2>
+        <div class="skills" id="skill-list"></div>
+        <div class="passive box">
+          <h3 data-i18n="passive"></h3>
+          <ul class="tags" id="passive-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="training">
+      <div class="wrap">
+        <h2 class="section__title" data-i18n="trainingTitle"></h2>
+        <div class="school box" id="school"></div>
+        <ul class="achievements" id="achievement-list"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="items">
+      <div class="wrap">
+        <h2 class="section__title" data-i18n="itemsTitle"></h2>
+        <div class="items" id="item-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="contact">
+      <div class="wrap contact">
+        <h2 class="section__title section__title--center" data-i18n="contactTitle"></h2>
+        <p class="contact__text" data-i18n="contactText"></p>
+        <div class="contact__links" id="contact-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p data-i18n="thanks"></p>
+      <p class="footer__copy" id="copy"></p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/sprite.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
